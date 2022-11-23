@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar(props) {
+
+  const [token, setToken] = useState("");
+  const [hasToken, setHasToken] = useState(false);
+
+    useEffect(() => {
+        if(localStorage.getItem("token")){
+          setToken(localStorage.getItem(token));
+            setHasToken(true);
+            }
+        }, [token]);
+
     return (
 
             <Navbar bg="light" expand="lg">
@@ -14,7 +25,10 @@ function NavBar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="login">Login</Nav.Link>
+            {hasToken  ?
+                <Nav.Link href="login">Logout</Nav.Link> :
+                <Nav.Link href="login">Login</Nav.Link>
+            }
             <Nav.Link href="course">Course</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
