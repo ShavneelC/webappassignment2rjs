@@ -2,12 +2,14 @@ import React, {Fragment, useEffect, useState} from 'react';
 import {Button} from "react-bootstrap";
 import axios from "axios";
 import {BaseUrl} from "./constants";
+import {useNavigate} from "react-router-dom";
 
 function Login(props) {
     const [token, setToken] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [hasToken, setHasToken] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(localStorage.getItem("token")){
@@ -40,11 +42,12 @@ function Login(props) {
             setToken(response.data);
             setHasToken(true)
             localStorage.setItem("token", response.data.token);
+            navigate("/");
+            window.location.reload(false);
         }).catch(error=>{
             console.log(error)
         });
     }
-
 
     function Logout() {
         let login_token = localStorage.getItem("token");
@@ -60,6 +63,8 @@ function Login(props) {
             localStorage.removeItem("token");
             setToken("");
             setHasToken(false)
+            navigate("/");
+            window.location.reload(false);
         }).catch(error=>{
             console.log(error);
         })
