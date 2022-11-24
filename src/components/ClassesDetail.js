@@ -6,28 +6,28 @@ import axios from "axios";
 function ClassesDetail(props) {
 
     const location=useLocation();
-    const class_number = location.state.class_number
+    const classnumber = location.state.class_number
 
-    const [classes, setClasses] = useState("");
+    const [classes, setClasses] = useState({});
 
     useEffect(() => {
-        return () => {
-            axios.get(BaseUrl+"attendance/classes_viewset/"+[class_number])
+
+            axios.get(BaseUrl+"attendance/classes_viewset/"+[classnumber])
                 .then(response=>{
                     setClasses(response.data)
 
                 }).catch(error=>{
                     console.log(error)
             })
-        };
+
     }, [classes]);
 
 
     return (
         <div>
-            <h1>{classes.id}</h1>
+            <h1>{classes.class_number}</h1>
             <div>
-                {classes.body}
+                {classes.semester}
             </div>
 
         </div>

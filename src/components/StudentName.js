@@ -6,7 +6,7 @@ function StudentName(props) {
     const [name, setName] = useState("");
 
     useEffect(() => {
-       axios.get(BaseUrl+"attendance/users/"+props.authorID)
+       axios.get(BaseUrl+"attendance/users/"+props.stuID)
            .then(response => {
                setName(response.data.username)
 

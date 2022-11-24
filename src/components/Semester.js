@@ -2,14 +2,13 @@ import React, {Fragment, useEffect, useState} from 'react';
 import axios from "axios";
 import {BaseUrl} from "./constants";
 
-function Course(props) {
-
-    const [courses, setCourses] = useState([]);
+function Semester(props) {
+    const [semesters, setSemesters] = useState([]);
 
     useEffect(() => {
-        axios.get(BaseUrl+"attendance/course_viewset")
+        axios.get(BaseUrl+"attendance/semester_viewset")
             .then(response=>
-            setCourses(response.data)
+            setSemesters(response.data)
             ).catch(error=>{
                 console.log(error)
             })
@@ -19,8 +18,8 @@ function Course(props) {
 return (
 
     <Fragment>
-        {courses.map(course=>
-            <option value={course.course_id} key={course.course_id}>{course.name} </option>
+        {semesters.map(semester=>
+            <option value={semester.id} key={semester.id}>{semester.semester}</option>
         )}
     </Fragment>
 
@@ -29,5 +28,4 @@ return (
 
     );
 }
-
-export default Course;
+export default Semester;

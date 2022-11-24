@@ -8,6 +8,7 @@ import Attendance from "./components/attendance";
 import Login from "./components/Login";
 import Classes from "./components/Classes";
 import ClassesDetail from "./components/ClassesDetail";
+import ClassesCreate from "./components/ClassesCreate";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="course" element={ <Course/> } />
           <Route path="attendance" element={ <Attendance/> } />
           <Route path="login" element={ <Login/> } />
+          <Route path="ClassesCreate" element={ <ClassesCreate/> } />
 
 
 
