@@ -10,6 +10,8 @@ import Classes from "./components/Classes";
 import ClassesDetail from "./components/ClassesDetail";
 import ClassesCreate from "./components/ClassesCreate";
 import ClassesUpdate from "./components/ClassesUpdate";
+import Courses from "./components/Courses";
+import CoursesCreate from "./components/CoursesCreate";
 
 
 
@@ -18,13 +20,15 @@ function App() {
     <div className="App">
         <NavBar></NavBar>
       <Routes>
-          <Route path="/" element={ <Classes/> } />
+          <Route path="/" element={ <Home/> } />
+          <Route path="Classes" element={ <Classes/> } />
           <Route path="classes_detail" element={ <ClassesDetail/> } />
-          <Route path="course" element={ <Course/> } />
+          <Route path="Courses" element={ <Courses/> } />
           <Route path="attendance" element={ <Attendance/> } />
           <Route path="login" element={ <Login/> } />
           <Route path="ClassesCreate" element={ <ClassesCreate/> } />
           <Route path="ClassesUpdate" element={ <ClassesUpdate/> } />
+          <Route path="CourseCreate" element={ <CoursesCreate/> } />
 
 
 

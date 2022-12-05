@@ -7,8 +7,8 @@ import {Button, Table} from "react-bootstrap";
 import LecturerName from "./LecturerName";
 import CourseName from "./CourseName";
 
-function Classes(props) {
-    const [classes, setClasses] = useState([]);
+function Courses(props) {
+    const [course, setCourse] = useState([]);
 
     const [token, setToken] = useState("");
     const [hasToken, setHasToken] = useState(false);
@@ -42,19 +42,19 @@ function Classes(props) {
 
 
     useEffect(() => {
-        axios.get(BaseUrl+"attendance/classes_viewset")
+        axios.get(BaseUrl+"attendance/course_viewset")
             .then(response=>{
-                setClasses(response.data);
+                setCourse(response.data);
             }).catch(error=>{
                 console.log(error)
         })
-    }, [classes]);
+    }, [course]);
 
-    function deleteClasses(event){
-        let class_number = event.target.value
-        axios.delete(BaseUrl+"attendance/classes_viewset/"+class_number)
+    function deleteCourse(event){
+        let course_id = event.target.value
+        axios.delete(BaseUrl+"attendance/course_viewset/"+course_id)
             .then(response=>{
-                alert("Class has been deleted")
+                alert("Course has been deleted")
             }).catch(error=>{
                  console.log(error)
         })
@@ -68,7 +68,7 @@ function Classes(props) {
                 {hasToken ? <Fragment>
 
                         <p>
-                            <Link to={"/ClassesCreate"} className={"btn btn-success"}>Create a class</Link>
+                            <Link to={"/CourseCreate"} className={"btn btn-success"}>Create a course</Link>
 
 
                         </p>
@@ -76,29 +76,29 @@ function Classes(props) {
                         <Table striped bordered hover>
                             <thead>
                             <tr>
-                                <th>Class ID</th>
-                                <th>Course</th>
+                                <th>Course ID</th>
+                                <th>Code</th>
+                                <th>Name</th>
                                 <th>Semester</th>
-                                <th>Lecturer</th>
                                 <th>Update</th>
                                 <th>Remove</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {classes.map(classDetails =>
+                            {course.map(courseDetails =>
 
-                                <tr key={classDetails.class_number}>
-                                    <td>{classDetails.class_number}</td>
-                                    <td><CourseName courseID={classDetails.course}/></td>
-                                    <td>{classDetails.semester}</td>
-                                    <td><LecturerName lecID={classDetails.lecturer}/></td>
+                                <tr key={courseDetails.course_id}>
+                                    <td>{courseDetails.course_id}</td>
+                                    <td>{courseDetails.code}</td>
+                                    <td>{courseDetails.name}</td>
+                                    <td>{courseDetails.semester}</td>
                                     <td>
-                                        <Link to={"/ClassesUpdate"} className="btn btn-sm btn-info"
-                                              state={{class_number: classDetails.class_number}}> Update </Link>
+                                        <Link to={"/CourseUpdate"} className="btn btn-sm btn-info"
+                                              state={{course_id: courseDetails.course_id}}> Update </Link>
 
                                     </td>
-                                    <td><Button className="btn btn-sm btn-danger" value={classDetails.class_number}
-                                                onClick={deleteClasses}
+                                    <td><Button className="btn btn-sm btn-danger" value={courseDetails.course_id}
+                                                onClick={deleteCourse}
                                     >Delete</Button></td>
 
                                 </tr>
@@ -118,4 +118,4 @@ function Classes(props) {
     );
 }
 
-export default Classes;
+export default Courses;

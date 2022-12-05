@@ -7,7 +7,7 @@ import {BaseUrl} from "./constants";
 import axios from "axios";
 import {Table} from "react-bootstrap";
 
-function ClassesCreate(props) {
+function CoursesCreate(props) {
     const [token, setToken] = useState("");
     const [hasToken, setHasToken] = useState("");
 
@@ -18,18 +18,17 @@ function ClassesCreate(props) {
             }
     }, []);
 
-    function createClasses(){
+    function createCourses(){
         let login_token = localStorage.getItem("token")
 
         let data={
-            class_number:document.getElementById("ClassNumber").value,
-            course:document.getElementById("Course").value,
+            course_id:document.getElementById("CourseId").value,
+            code:document.getElementById("Code").value,
+            name:document.getElementById("Name").value,
             semester:document.getElementById("Semester").value,
-            lecturer:document.getElementById("Lecturer").value,
-            student:document.getElementById("Student").getAttributeNames()
         }
 
-        axios.post(BaseUrl+"attendance/classes_viewset/", data, {headers:{
+        axios.post(BaseUrl+"attendance/course_viewset/", data, {headers:{
             "Authorization": "Token "+login_token
             }}).then(response=>{
                 alert("Create successful")
@@ -40,12 +39,14 @@ function ClassesCreate(props) {
 
     return (
         <div>
-            <p>Class Number: <input type={"text"}  id={"ClassNumber"}/> </p>
+            <p>Course ID: <input type={"text"}  id={"CourseId"}/> </p>
             <p>
-                Course:
-                <select id={"Course"}>
-                <Course/>
-                </select>
+                Code:
+                <input type={"text"}  id={"Code"}/>
+            </p>
+            <p>
+                Name:
+                <input type={"text"}  id={"Name"}/>
             </p>
             <p>
                 Semester:
@@ -54,27 +55,12 @@ function ClassesCreate(props) {
 
                 </select>
             </p>
-            <p>
-                Lecturer:
-                <select id={"Lecturer"}>
-                <Lecturer/>
 
-                </select>
-            </p>
             <p>
-                Students:
-                <select id={"Student"} multiple >
-                <Student/>
-
-                </select>
+                <button className={"btn btn-danger"} onClick={createCourses}>Create</button>
             </p>
-            <p>
-                <button className={"btn btn-danger"} onClick={createClasses}>Create</button>
-            </p>
-
 
         </div>
-
 
 
     );
@@ -82,4 +68,4 @@ function ClassesCreate(props) {
 
 }
 
-export default ClassesCreate;
+export default CoursesCreate;
