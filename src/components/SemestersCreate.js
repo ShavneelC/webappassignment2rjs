@@ -18,17 +18,17 @@ function SemestersCreate(props) {
             }
     }, []);
 
-    function createCourses(){
+    function createSemester(){
         let login_token = localStorage.getItem("token")
 
         let data={
-            course_id:document.getElementById("CourseId").value,
-            code:document.getElementById("Code").value,
-            name:document.getElementById("Name").value,
+            semester_id:document.getElementById("SemesterId").value,
+            year:document.getElementById("Year").value,
             semester:document.getElementById("Semester").value,
+
         }
 
-        axios.post(BaseUrl+"attendance/course_viewset/", data, {headers:{
+        axios.post(BaseUrl+"attendance/semester_viewset/", data, {headers:{
             "Authorization": "Token "+login_token
             }}).then(response=>{
                 alert("Create successful")
@@ -39,25 +39,19 @@ function SemestersCreate(props) {
 
     return (
         <div>
-            <p>Course ID: <input type={"text"}  id={"CourseId"}/> </p>
+            <p>Semester ID: <input type={"text"}  id={"SemesterId"}/> </p>
             <p>
-                Code:
-                <input type={"text"}  id={"Code"}/>
-            </p>
-            <p>
-                Name:
-                <input type={"text"}  id={"Name"}/>
+                Year:
+                <input type={"text"}  id={"Year"}/>
             </p>
             <p>
                 Semester:
-                <select id={"Semester"}>
-                <Semester/>
-
-                </select>
+                <input type={"text"}  id={"Semester"}/>
             </p>
 
+
             <p>
-                <button className={"btn btn-danger"} onClick={createCourses}>Create</button>
+                <button className={"btn btn-danger"} onClick={createSemester}>Create</button>
             </p>
 
         </div>

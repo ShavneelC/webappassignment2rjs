@@ -91,11 +91,11 @@ function Semesters(props) {
                                     <td>{semesterDetails.year}</td>
                                     <td>{semesterDetails.semester}</td>
                                     <td>
-                                        <Link to={"/CoursesUpdate"} className="btn btn-sm btn-info"
+                                        <Link to={"/SemestersUpdate"} className="btn btn-sm btn-info"
                                               state={{semester_id: semesterDetails.semester_id}}> Update </Link>
 
                                     </td>
-                                    <td><Button className="btn btn-sm btn-danger" value={semesterDetails.course_id}
+                                    <td><Button className="btn btn-sm btn-danger" value={semesterDetails.semester_id}
                                                 onClick={deleteSemester}
                                     >Delete</Button></td>
 
