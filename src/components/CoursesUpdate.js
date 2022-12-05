@@ -25,10 +25,10 @@ function CoursesUpdate(props) {
             axios.get(BaseUrl+"attendance/course_viewset/"+[courseid])
                 .then(response=>{
                     setCourses(response.data);
-                    setCourseId(response.data.course);
-                    setCode(response.data.semester);
-                    setName(response.data.lecturer);
-                    setSemester(response.data.student);
+                    setCourseId(response.data.course_id);
+                    setCode(response.data.code);
+                    setName(response.data.name);
+                    setSemester(response.data.semester);
                 }).catch(error=>{
                     console.log(error)
             })
@@ -46,7 +46,7 @@ function CoursesUpdate(props) {
 
         }
 
-        axios.patch(BaseUrl+"attendance/classes_viewset/"+courseid+"/", data, {headers:{
+        axios.patch(BaseUrl+"attendance/course_viewset/"+courseid+"/", data, {headers:{
             "Authorization": "Token "+login_token
             }}).then(response=>{
                 alert("Update successful")
@@ -75,11 +75,15 @@ function CoursesUpdate(props) {
         <div>
             <p>Course ID: <input type={"text"}  id={"CourseID"} value={courseid}/> </p>
             <p>
-                Code:
-                <select id={"Course"} value={code} onChange={codeHandler}>
-                <Course/>
-                </select>
+
+                    <p>Code: <input type={"text"}  id={"Code"} value={code} onChange={codeHandler}/> </p>
             </p>
+
+            <p>
+                    <p>Name: <input type={"text"}  id={"Name"} value={name} onChange={nameHandler}/> </p>
+
+            </p>
+
             <p>
                 Semester:
                 <select id={"Semester"} value = {semester} onChange={semesterHandler}>
@@ -87,13 +91,7 @@ function CoursesUpdate(props) {
 
                 </select>
             </p>
-            <p>
-                Name:
-                <select id={"Lecturer"} value = {name} onChange={nameHandler}>
-                <Lecturer/>
 
-                </select>
-            </p>
 
             <p>
                 <button className={"btn btn-danger"} onClick={updateCourses} >Update</button>
