@@ -86,13 +86,13 @@ function Semesters(props) {
                             <tbody>
                             {semester.map(semesterDetails =>
 
-                                <tr key={semesterDetails.course_id}>
-                                    <td>{semesterDetails.course_id}</td>
-                                    <td>{semesterDetails.code}</td>
+                                <tr key={semesterDetails.semester_id}>
+                                    <td>{semesterDetails.semester_id}</td>
+                                    <td>{semesterDetails.year}</td>
                                     <td>{semesterDetails.semester}</td>
                                     <td>
                                         <Link to={"/CoursesUpdate"} className="btn btn-sm btn-info"
-                                              state={{course_id: semesterDetails.course_id}}> Update </Link>
+                                              state={{semester_id: semesterDetails.semester_id}}> Update </Link>
 
                                     </td>
                                     <td><Button className="btn btn-sm btn-danger" value={semesterDetails.course_id}
