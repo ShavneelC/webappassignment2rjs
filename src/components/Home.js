@@ -41,7 +41,7 @@ function Home(props) {
                         <tr>
                             <td><Button className="btn btn-sm btn-danger" href={"Classes"}> Enter</Button></td>
                             <td><Button className="btn btn-sm btn-danger" href={"Courses"}> Enter</Button></td>
-                            <td><Button className="btn btn-sm btn-danger" href={"Classes"}> Enter</Button></td>
+                            <td><Button className="btn btn-sm btn-danger" href={"Semesters"}> Enter</Button></td>
                             <td><Button className="btn btn-sm btn-danger" href={"Classes"}> Enter</Button></td>
                             <td><Button className="btn btn-sm btn-danger" href={"Classes"}> Enter</Button></td>
                             <td><Button className="btn btn-sm btn-danger" href={"Classes"}> Enter</Button></td>

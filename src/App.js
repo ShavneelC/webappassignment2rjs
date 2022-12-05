@@ -13,6 +13,8 @@ import ClassesUpdate from "./components/ClassesUpdate";
 import Courses from "./components/Courses";
 import CoursesCreate from "./components/CoursesCreate";
 import CoursesUpdate from "./components/CoursesUpdate";
+import Semesters from "./components/Semesters";
+import SemestersCreate from "./components/SemestersCreate";
 
 
 
@@ -31,6 +33,8 @@ function App() {
           <Route path="ClassesUpdate" element={ <ClassesUpdate/> } />
           <Route path="CourseCreate" element={ <CoursesCreate/> } />
           <Route path="CoursesUpdate" element={ <CoursesUpdate/> } />
+          <Route path="Semesters" element={ <Semesters/> } />
+          <Route path="SemesterCreate" element={ <SemestersCreate/> } />
 
 
 
