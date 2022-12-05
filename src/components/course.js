@@ -20,7 +20,9 @@ return (
 
     <Fragment>
         {courses.map(course=>
-            <option value={course.course_id} key={course.course_id}>{course.name} </option>
+            <option value={course.course_id} key={course.course_id}>{course.name}
+
+            </option>
         )}
     </Fragment>
 

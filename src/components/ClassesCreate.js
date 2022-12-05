@@ -5,6 +5,7 @@ import Lecturer from "./Lecturer";
 import Student from "./Student";
 import {BaseUrl} from "./constants";
 import axios from "axios";
+import {Table} from "react-bootstrap";
 
 function ClassesCreate(props) {
     const [token, setToken] = useState("");
@@ -25,20 +26,17 @@ function ClassesCreate(props) {
             course:document.getElementById("Course").value,
             semester:document.getElementById("Semester").value,
             lecturer:document.getElementById("Lecturer").value,
-            student:document.getElementById("Student").value
+            student:document.getElementById("Student").getAttributeNames()
         }
 
         axios.post(BaseUrl+"attendance/classes_viewset/", data, {headers:{
             "Authorization": "Token "+login_token
-            }}).then(reponse=>{
+            }}).then(response=>{
                 alert("Create successful")
         }).catch(error=>{
             console.log(error)
         })
-
-
     }
-
 
     return (
         <div>
@@ -65,7 +63,7 @@ function ClassesCreate(props) {
             </p>
             <p>
                 Students:
-                <select id={"Student"} multiple>
+                <select id={"Student"} multiple >
                 <Student/>
 
                 </select>
@@ -74,8 +72,14 @@ function ClassesCreate(props) {
                 <button className={"btn btn-danger"} onClick={createClasses}>Create</button>
             </p>
 
+
         </div>
+
+
+
     );
+
+
 }
 
 export default ClassesCreate;

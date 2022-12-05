@@ -12,6 +12,7 @@ function ClassesDetail(props) {
 
     useEffect(() => {
 
+
             axios.get(BaseUrl+"attendance/classes_viewset/"+[classnumber])
                 .then(response=>{
                     setClasses(response.data)
