@@ -93,7 +93,7 @@ function Courses(props) {
                                     <td>{courseDetails.name}</td>
                                     <td>{courseDetails.semester}</td>
                                     <td>
-                                        <Link to={"/CourseUpdate"} className="btn btn-sm btn-info"
+                                        <Link to={"/CoursesUpdate"} className="btn btn-sm btn-info"
                                               state={{course_id: courseDetails.course_id}}> Update </Link>
 
                                     </td>
