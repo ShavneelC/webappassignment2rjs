@@ -12,6 +12,7 @@ import ClassesCreate from "./components/ClassesCreate";
 import ClassesUpdate from "./components/ClassesUpdate";
 import Courses from "./components/Courses";
 import CoursesCreate from "./components/CoursesCreate";
+import CoursesUpdate from "./components/CoursesUpdate";
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="ClassesCreate" element={ <ClassesCreate/> } />
           <Route path="ClassesUpdate" element={ <ClassesUpdate/> } />
           <Route path="CourseCreate" element={ <CoursesCreate/> } />
+          <Route path="CoursesUpdate" element={ <CoursesUpdate/> } />
 
 
 

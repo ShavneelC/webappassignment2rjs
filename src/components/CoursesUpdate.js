@@ -22,7 +22,7 @@ function CoursesUpdate(props) {
 
     useEffect(() => {
 
-            axios.get(BaseUrl+"attendance/course_viewset/"+[course_id])
+            axios.get(BaseUrl+"attendance/course_viewset/"+[courseid])
                 .then(response=>{
                     setCourses(response.data);
                     setCourseId(response.data.course);
@@ -46,7 +46,7 @@ function CoursesUpdate(props) {
 
         }
 
-        axios.patch(BaseUrl+"attendance/classes_viewset/"+courseId+"/", data, {headers:{
+        axios.patch(BaseUrl+"attendance/classes_viewset/"+courseid+"/", data, {headers:{
             "Authorization": "Token "+login_token
             }}).then(response=>{
                 alert("Update successful")
@@ -73,7 +73,7 @@ function CoursesUpdate(props) {
 
     return (
         <div>
-            <p>Class Number: <input type={"text"}  id={"ClassNumber"} value={courseId}/> </p>
+            <p>Course ID: <input type={"text"}  id={"CourseID"} value={courseid}/> </p>
             <p>
                 Code:
                 <select id={"Course"} value={code} onChange={codeHandler}>
