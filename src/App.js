@@ -15,6 +15,7 @@ import CoursesCreate from "./components/CoursesCreate";
 import CoursesUpdate from "./components/CoursesUpdate";
 import Semesters from "./components/Semesters";
 import SemestersCreate from "./components/SemestersCreate";
+import SemestersUpdate from "./components/SemestersUpdate";
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="CoursesUpdate" element={ <CoursesUpdate/> } />
           <Route path="Semesters" element={ <Semesters/> } />
           <Route path="SemesterCreate" element={ <SemestersCreate/> } />
+          <Route path="SemestersUpdate" element={ <SemestersUpdate/> } />
 
 
 
